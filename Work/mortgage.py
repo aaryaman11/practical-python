@@ -12,18 +12,25 @@ extra_payment_start_month = float(input("extra payment start month: "))
 extra_payment_last_month = float(input("extra payment last month: "))
 
 while principal > 0:
+    if time >= extra_payment_start_month and time <= extra_payment_last_month:
+        principal = principal * (1 + rate / 12) - monthly - extra_payment
+        total_paid += monthly + extra_payment
+    else:
+        principal = principal * (1 + rate / 12) - monthly
+        total_paid += monthly
+    time += 1
     # while time < 12:
-    if time == 0:
-        for i in range(12):
-            if extra_payment_start_month != 0 and time == 0:
-                principal = principal * (1 + rate / 12) - monthly - 1000 - extra_payment_start_month
-            else:
-                principal = principal * (1 + rate / 12) - monthly - 1000
-            time += 1
-            total_paid += monthly + 1000
-    else: 
-        principal = principal + principal * rate / 12 - monthly
-        time += 1
-        total_paid  += monthly
-print('Total_paid', total_paid, 'over', time, "months")
+    # if time == 0:
+    #     for i in range(12):
+    #         if extra_payment_start_month != 0 and time == 0:
+    #             principal = principal * (1 + rate / 12) - monthly - 1000 - extra_payment_start_month
+    #         else:
+    #             principal = principal * (1 + rate / 12) - monthly - 1000
+    #         time += 1
+    #         total_paid += monthly + 1000
+    # else: 
+        # principal = principal + principal * rate / 12 - monthly
+        # time += 1
+        # total_paid  += monthly
+print('Total_paid', round(total_paid,2), 'over', time, "months")
 
