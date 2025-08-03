@@ -15,11 +15,22 @@ while principal > 0:
     if time >= extra_payment_start_month and time <= extra_payment_last_month:
         principal = principal * (1 + rate / 12) - monthly - extra_payment
         total_paid += monthly + extra_payment
+
+    ## in the last month whatever is the balance only that should be paid ot more and the principal should show 0 not negative value
+    elif principal < monthly:
+        total_paid += principal 
+        principal = 0
+        
     else:
         principal = principal * (1 + rate / 12) - monthly
         total_paid += monthly
     time += 1
     print(time, round(total_paid, 2), round(principal, 2))
+
+    
+    
+
+
     # while time < 12:
     # if time == 0:
     #     for i in range(12):
@@ -33,6 +44,6 @@ while principal > 0:
         # principal = principal + principal * rate / 12 - monthly
         # time += 1
         # total_paid  += monthly
-print('Total_paid', round(total_paid, 2), '\n', 'Months', time)
+print('Total_paid', round(total_paid, 2), '\nMonths', time)
 
 
