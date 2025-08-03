@@ -12,24 +12,31 @@ extra_payment_start_month = float(input("extra payment start month: "))
 extra_payment_last_month = float(input("extra payment last month: "))
 
 while principal > 0:
+
+    # always calculate the ineterest first don't mix it with the rest of the code
+
+    # calculating interest 
+    principal = principal * (1 + rate / 12)
+
+    payments = monthly
     if time >= extra_payment_start_month and time <= extra_payment_last_month:
-        principal = principal * (1 + rate / 12) - monthly - extra_payment
-        total_paid += monthly + extra_payment
+        # when i was doing this monthly += extra_payment i was permantely modifying original monthly which lead to decrease in no. of months from original estimation as monthly was increasing 
+        payments +=  extra_payment
+
 
     ## in the last month whatever is the balance only that should be paid ot more and the principal should show 0 not negative value
-    elif principal < monthly:
-        total_paid += principal 
-        principal = 0
-        
-    else:
-        principal = principal * (1 + rate / 12) - monthly
-        total_paid += monthly
+    # also have to cap the payment 
+    if principal < monthly:
+        payments = principal 
+
+    
+
+    principal -= payments
+    total_paid += payments
     time += 1
+
     print(time, round(total_paid, 2), round(principal, 2))
-
     
-    
-
 
     # while time < 12:
     # if time == 0:
