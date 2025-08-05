@@ -27,7 +27,7 @@ while principal > 0:
     ## in the last month whatever is the balance only that should be paid ot more and the principal should show 0 not negative value
     # also have to cap the payment 
     if principal < monthly:
-        payments = principal 
+        payments = principal
 
     
 
@@ -51,6 +51,6 @@ while principal > 0:
         # principal = principal + principal * rate / 12 - monthly
         # time += 1
         # total_paid  += monthly
-print('Total_paid', round(total_paid, 2), '\nMonths', time)
+print(f'Total_paid {round(total_paid, 2)} \nMonths {time}')
 
 
