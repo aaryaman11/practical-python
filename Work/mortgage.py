@@ -29,8 +29,6 @@ while principal > 0:
     if principal < monthly:
         payments = principal
 
-    
-
     principal -= payments
     total_paid += payments
     time += 1
