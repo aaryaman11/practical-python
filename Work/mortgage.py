@@ -35,7 +35,6 @@ while principal > 0:
 
     print(time, round(total_paid, 2), round(principal, 2))
     
-
     # while time < 12:
     # if time == 0:
     #     for i in range(12):
@@ -50,5 +49,3 @@ while principal > 0:
         # time += 1
         # total_paid  += monthly
 print(f'Total_paid {round(total_paid, 2)} \nMonths {time}')
-
-
