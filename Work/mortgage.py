@@ -23,7 +23,6 @@ while principal > 0:
         # when i was doing this monthly += extra_payment i was permantely modifying original monthly which lead to decrease in no. of months from original estimation as monthly was increasing 
         payments +=  extra_payment
 
-
     ## in the last month whatever is the balance only that should be paid ot more and the principal should show 0 not negative value
     # also have to cap the payment 
     if principal < monthly:
