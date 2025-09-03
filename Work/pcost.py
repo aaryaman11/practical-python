@@ -17,10 +17,18 @@ def portfoloio_cost(filename):
         header = next(f).split(',') 
         for data in f:
             row = data.strip().split(",")
-            share = int(row[1])
-            prices = float(row[2])
+            try:
+                share = int(row[1])
+                prices = float(row[2])
+            except ValueError:
+                print('Missing data', row)
+                continue
+            # share = int(row[1])
+            # prices = float(row[2])
             j += share*prices
     return j
 
 cost = portfoloio_cost('Data/portfolio.csv')
-print('Total cost: ', cost)
+error_cost = portfoloio_cost('Data/missing.csv')
+print('Error cost: ', error_cost)
+# print('Total cost: ', cost)
