@@ -3,6 +3,7 @@
 # Exercise 1.27
 
 import csv
+import sys
 
 # with open('Data/portfolio.csv', 'rt')  as f:
 #     header = next(f).split(',') 
@@ -34,7 +35,13 @@ def portfoloio_cost(filename):
             j += share*prices
     return j
 
-cost = portfoloio_cost('Data/portfolio.csv')
+if len(sys.argv)  == 2:
+    filename = sys.argv[1]
+else:
+    filename = 'Data/portfolio.csv'
+
+cost = portfoloio_cost(filename)
 error_cost = portfoloio_cost('Data/missing.csv')
+print(sys.argv)
 print('Error cost: ', error_cost)
-# print('Total cost: ', cost)
+print('Total cost: ', cost)
