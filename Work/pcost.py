@@ -22,7 +22,7 @@ def portfoloio_cost(filename):
         header = next(row)
         # print('Header: ', header)
         for data in row:
-            # print('Data: ', data[1])
+            # print('Data: ', data)
             
             try:
                 share = int(data[1])
