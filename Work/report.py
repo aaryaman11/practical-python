@@ -8,7 +8,7 @@ def read_portfolio(filename):
         rows = csv.reader(f)
         header = next(rows)
         for row in rows:
-            holdings = (row[0], row[1], row[2])
+            holdings = (row[0], int(row[1]), float(row[2]))
             portfolio.append(holdings)
     return portfolio
 
